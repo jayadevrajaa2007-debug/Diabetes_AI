@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AI-powered Diabetes Prediction, PDF & Image OCR Lab Report Scanner. Upload medical PDFs, PNG/JPG screenshots, or enter patient metrics." />
+    <title>Diabetes AI — PDF & Image Scanner & Risk Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- ── Animated background particles ────────────────────────────── -->
+    <div class="bg-animation" aria-hidden="true">
+        <div class="particle p1"></div>
+        <div class="particle p2"></div>
+        <div class="particle p3"></div>
+        <div class="particle p4"></div>
+        <div class="particle p5"></div>
+        <div class="particle p6"></div>
+        <div class="particle p7"></div>
+        <div class="particle p8"></div>
+    </div>
+
+    <!-- ── Header / Navbar ──────────────────────────────────────────── -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-brand">
+            <div class="brand-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+            </div>
+            <span class="brand-text">DiabetesAI <span class="badge-mini">PDF &amp; Image OCR</span></span>
+        </div>
+        <nav class="navbar-actions">
+            <button class="btn btn-ext" id="btnExtensionGuide" type="button" title="Chrome Extension Info">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                </svg>
+                <span>Chrome Extension</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle Dark/Light Mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ── Main Content ─────────────────────────────────────────────── -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                PDF, Image &amp; Screenshot OCR Scanner
+            </div>
+            <h1 class="hero-title">Diabetes Risk<br/><span class="gradient-text">Medical Scanner &amp; Predictor</span></h1>
+            <p class="hero-subtitle">Upload any medical report PDF, lab photo, or screenshot (PNG/JPG) — or paste directly (Ctrl+V) for instant AI OCR analysis &amp; diabetes prediction.</p>
+        </section>
+
+        <!-- PDF & Image Upload Scanner Card -->
+        <section class="card pdf-card" id="pdfScannerCard">
+            <div class="card-header">
+                <div class="card-icon pdf-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="card-title">PDF &amp; Image Medical Lab Scanner</h2>
+                    <p class="card-desc">Scan PDFs, PNG/JPG photos, report screenshots, or paste from clipboard (Ctrl+V)</p>
+                </div>
+            </div>
+
+            <div class="pdf-drop-zone" id="webPdfDropZone">
+                <div class="drop-illustration">
+                    <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                </div>
+                <h3>Drag &amp; Drop Medical PDF or Report Screenshot Here</h3>
+                <p>Supports PDFs, PNG, JPG, WEBP images, or press <strong>Ctrl+V</strong> to paste a screenshot directly.</p>
+                <label for="webPdfInput" class="btn btn-primary btn-browse">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <span>Browse PDF / Image File</span>
+                </label>
+                <input type="file" id="webPdfInput" accept="application/pdf, image/png, image/jpeg, image/jpg, image/webp, image/bmp, .pdf, .png, .jpg, .jpeg, .webp, .bmp" style="display:none;" />
+
+                <div class="sample-btn-group">
+                    <button type="button" class="btn btn-secondary btn-sm" id="btnWebLoadSampleDiabetic">
+                        ⚡ Scan Sample High Risk PDF Report
+                    </button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btnWebLoadSampleHealthy">
+                        🌱 Scan Sample Healthy PDF Report
+                    </button>
+                </div>
+            </div>
+
+            <div class="scan-alert hidden" id="webScanAlert">
+                <div class="alert-icon">✓</div>
+                <div class="alert-text">
+                    <strong id="webAlertTitle">Extracted 8 Clinical Metrics!</strong>
+                    <span id="webAlertDesc">Values auto-filled into form fields below. Review and click Predict.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prediction Form Card -->
+        <section class="card form-card" id="formCard">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="card-title">Patient Health Metrics</h2>
+                    <p class="card-desc">Review or edit values before running AI model prediction</p>
+                </div>
+            </div>
+
+            <form id="predictionForm" novalidate>
+                <div class="form-grid">
+                    <!-- Gender -->
+                    <div class="form-group form-group-full" id="group-gender">
+                        <label for="gender">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+                            Gender
+                        </label>
+                        <select id="gender" name="Gender" required>
+                            <option value="" disabled selected>Select gender</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </select>
+                        <span class="field-hint">Pregnancies will be set to 0 for male patients</span>
+                        <span class="field-error" id="error-gender"></span>
+                    </div>
+
+                    <!-- Pregnancies -->
+                    <div class="form-group" id="group-pregnancies">
+                        <label for="pregnancies">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            Pregnancies
+                        </label>
+                        <input type="number" id="pregnancies" name="Pregnancies" placeholder="e.g. 2" min="0" max="20" step="1" required />
+                        <span class="field-hint">Number of pregnancies (0–20)</span>
+                        <span class="field-error" id="error-pregnancies"></span>
+                    </div>
+
+                    <!-- Glucose -->
+                    <div class="form-group" id="group-glucose">
+                        <label for="glucose">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6l3 3"/><circle cx="12" cy="14" r="8"/></svg>
+                            Glucose
+                        </label>
+                        <input type="number" id="glucose" name="Glucose" placeholder="e.g. 120" min="0" max="300" step="1" required />
+                        <span class="field-hint">Plasma glucose concentration (mg/dL)</span>
+                        <span class="field-error" id="error-glucose"></span>
+                    </div>
+
+                    <!-- Blood Pressure -->
+                    <div class="form-group" id="group-bloodpressure">
+                        <label for="bloodpressure">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                            Blood Pressure
+                        </label>
+                        <input type="number" id="bloodpressure" name="BloodPressure" placeholder="e.g. 70" min="0" max="200" step="1" required />
+                        <span class="field-hint">Diastolic blood pressure (mm Hg)</span>
+                        <span class="field-error" id="error-bloodpressure"></span>
+                    </div>
+
+                    <!-- Skin Thickness -->
+                    <div class="form-group" id="group-skinthickness">
+                        <label for="skinthickness">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                            Skin Thickness
+                        </label>
+                        <input type="number" id="skinthickness" name="SkinThickness" placeholder="e.g. 20" min="0" max="100" step="1" required />
+                        <span class="field-hint">Triceps skin fold thickness (mm)</span>
+                        <span class="field-error" id="error-skinthickness"></span>
+                    </div>
+
+                    <!-- Insulin -->
+                    <div class="form-group" id="group-insulin">
+                        <label for="insulin">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            Insulin
+                        </label>
+                        <input type="number" id="insulin" name="Insulin" placeholder="e.g. 85" min="0" max="900" step="1" required />
+                        <span class="field-hint">2-Hour serum insulin (μU/mL)</span>
+                        <span class="field-error" id="error-insulin"></span>
+                    </div>
+
+                    <!-- BMI -->
+                    <div class="form-group" id="group-bmi">
+                        <label for="bmi">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                            BMI
+                        </label>
+                        <input type="number" id="bmi" name="BMI" placeholder="e.g. 28.5" min="0" max="80" step="0.1" required />
+                        <span class="field-hint">Body mass index (kg/m²)</span>
+                        <span class="field-error" id="error-bmi"></span>
+                    </div>
+
+                    <!-- Diabetes Pedigree Function -->
+                    <div class="form-group" id="group-dpf">
+                        <label for="dpf">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Diabetes Pedigree Function
+                        </label>
+                        <input type="number" id="dpf" name="DiabetesPedigreeFunction" placeholder="e.g. 0.35" min="0" max="3" step="0.001" required />
+                        <span class="field-hint">Genetic diabetes likelihood (0.0–2.5)</span>
+                        <span class="field-error" id="error-dpf"></span>
+                    </div>
+
+                    <!-- Age -->
+                    <div class="form-group" id="group-age">
+                        <label for="age">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Age
+                        </label>
+                        <input type="number" id="age" name="Age" placeholder="e.g. 35" min="1" max="120" step="1" required />
+                        <span class="field-hint">Patient age in years</span>
+                        <span class="field-error" id="error-age"></span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="btnPredict">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <span>Run AI Prediction</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btnClear">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                        <span>Clear Form</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div class="spinner-overlay" id="spinnerOverlay" aria-hidden="true">
+            <div class="spinner-card">
+                <div class="spinner"></div>
+                <p class="spinner-text" id="spinnerText">Analyzing health metrics…</p>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <section class="result-section" id="resultSection" aria-live="polite">
+            <!-- Dynamically populated by JS -->
+        </section>
+
+        <!-- Extension Guide Modal -->
+        <div class="modal-overlay hidden" id="extModalOverlay">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <h3>Chrome Extension Setup</h3>
+                    <button class="modal-close" id="btnCloseModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Install the <strong>Diabetes AI PDF &amp; Screenshot Scanner</strong> Chrome/Edge Extension:</p>
+                    <ol class="setup-steps">
+                        <li>Open <code>chrome://extensions</code> in Chrome or Edge.</li>
+                        <li>Toggle <strong>Developer mode</strong> in the top right corner.</li>
+                        <li>Click <strong>Load unpacked</strong>.</li>
+                        <li>Select the <code>extension</code> directory from this project folder.</li>
+                    </ol>
+                    <div class="modal-tip">
+                        💡 <strong>Features:</strong> Instant PDF &amp; Screenshot OCR scanning, right-click context menu, and offline model evaluation!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Toast -->
+        <div class="toast" id="errorToast" role="alert" aria-live="assertive">
+            <div class="toast-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="15" y1="9" x2="9" y2="15"/>
+                    <line x1="9" y1="9" x2="15" y2="15"/>
+                </svg>
+            </div>
+            <span class="toast-message" id="toastMessage"></span>
+            <button class="toast-close" id="toastClose" aria-label="Close notification">&times;</button>
+        </div>
+    </main>
+
+    <!-- ── Footer ───────────────────────────────────────────────────── -->
+    <footer class="footer" id="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+                <span>DiabetesAI</span>
+            </div>
+            <p class="footer-text">AI-powered diabetes risk assessment using Logistic Regression &amp; OCR text recognition. For educational &amp; research purposes only — not a medical diagnosis.</p>
+            <div class="footer-links">
+                <span>Built with Flask &amp; scikit-learn</span>
+                <span class="sep">·</span>
+                <span>&copy; 2026 DiabetesAI</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="tesseract.min.js"></script>
+    <script src="pdf.min.js"></script>
+    <script src="pdf-parser.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1375 >>
+stream
+BT
+/F1 16 Tf 50 750 Td (DIAGNOSTIC MEDICAL LAB REPORT - HEALTHY CHECKUP) Tj ET
+BT
+/F1 10 Tf 50 730 Td (-----------------------------------------------------------------------------------) Tj ET
+BT
+/F1 11 Tf 50 710 Td (Patient: Sarah Smith    Age: 29    Gender: Female    Pregnancies: 1) Tj ET
+BT
+/F1 10 Tf 50 690 Td (-----------------------------------------------------------------------------------) Tj ET
+BT
+/F1 11 Tf 50 660 Td (CLINICAL PARAMETER             RESULT        REFERENCE RANGE) Tj ET
+BT
+/F1 10 Tf 50 645 Td (-----------------------------------------------------------------------------------) Tj ET
+BT
+/F1 11 Tf 50 625 Td (Fasting Blood Glucose          88 mg/dL    (70 - 99 mg/dL)) Tj ET
+BT
+/F1 11 Tf 50 605 Td (Blood Pressure (Diastolic)      68 mmHg      (60 - 80 mmHg)) Tj ET
+BT
+/F1 11 Tf 50 585 Td (Body Mass Index (BMI)          22.4 kg/m2     (18.5 - 24.9)) Tj ET
+BT
+/F1 11 Tf 50 565 Td (Serum Insulin                  45 uIU/mL   (15 - 110 uIU/mL)) Tj ET
+BT
+/F1 11 Tf 50 545 Td (Triceps Skin Thickness         18 mm       (10 - 30 mm)) Tj ET
+BT
+/F1 11 Tf 50 525 Td (Diabetes Pedigree Function (DPF)0.24        (0.1 - 0.4)) Tj ET
+BT
+/F1 10 Tf 50 500 Td (-----------------------------------------------------------------------------------) Tj ET
+BT
+/F1 11 Tf 50 480 Td (Clinical Summary: Normal blood glucose and insulin levels. Low risk profile.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000242 00000 n 
+0000000340 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+420
+%%EOF
